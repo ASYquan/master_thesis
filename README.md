@@ -14,21 +14,22 @@ assessments.
 This thesis explores multiple approaches to LLM-assisted penetration testing.
 Three models have been developed and evaluated:
 
-1. **Claude Code on Kali VM**: Running Claude Code directly on the Kali Linux
-   VM as an interactive penetration testing assistant. Claude Code operates
-   in the terminal with full access to Kali tools, enabling real-time
-   reconnaissance, exploitation, and analysis.
+1. **Claude Code on Kali VM** (`claude-code-kali/`): Running Claude Code
+   directly on the Kali Linux VM as an interactive penetration testing
+   assistant. Claude Code operates in the terminal with full access to Kali
+   tools, enabling real-time reconnaissance, exploitation, and analysis.
+   Includes the bootstrap setup script.
 
-2. **Kali MCP Server with Claude Desktop**: A standalone MCP server
-   (`kali_server.py` and `mcp_server.py`) that exposes Kali Linux penetration
-   testing tools to Claude Desktop via the Model Context Protocol. This allows
-   Claude Desktop to drive nmap, Metasploit, Modbus, MQTT, and other tools
-   remotely through a structured tool interface. Configuration is in
-   `mcp-kali-server.json`.
+2. **Kali MCP Server with Claude Desktop** (`mcp-kali-server/`): A standalone
+   MCP server (`kali_server.py` and `mcp_server.py`) that exposes Kali Linux
+   penetration testing tools to Claude Desktop via the Model Context Protocol.
+   This allows Claude Desktop to drive nmap, Metasploit, Modbus, MQTT, and
+   other tools remotely through a structured tool interface. Configuration is
+   in `mcp-kali-server.json`.
 
-3. **ARXON-ICS Orchestrator**: The multi-model framework described below,
-   which coordinates DeepSeek, Kimi K2.5, Claude, and local models through
-   a swarm architecture with TLA+ safety verification.
+3. **ARXON-ICS Orchestrator** (`arxon-ics/`): The multi-model framework
+   described below, which coordinates DeepSeek, Kimi K2.5, Claude, and local
+   models through a swarm architecture with TLA+ safety verification.
 
 ## Motivation
 
