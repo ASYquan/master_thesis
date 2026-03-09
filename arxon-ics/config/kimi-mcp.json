@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "arxon-ics": {
+      "command": "python3",
+      "args": ["/home/kali/arxon-ics/mcp-servers/kali-ics/server.py"]
+    }
+  }
+}
