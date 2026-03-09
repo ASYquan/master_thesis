@@ -9,6 +9,27 @@ The framework adapts a real-world multi-model attack pipeline into a
 safety-verified, ICS-focused orchestration system for authorized security
 assessments.
 
+## Development Models
+
+This thesis explores multiple approaches to LLM-assisted penetration testing.
+Three models have been developed and evaluated:
+
+1. **Claude Code on Kali VM**: Running Claude Code directly on the Kali Linux
+   VM as an interactive penetration testing assistant. Claude Code operates
+   in the terminal with full access to Kali tools, enabling real-time
+   reconnaissance, exploitation, and analysis.
+
+2. **Kali MCP Server with Claude Desktop**: A standalone MCP server
+   (`kali_server.py` and `mcp_server.py`) that exposes Kali Linux penetration
+   testing tools to Claude Desktop via the Model Context Protocol. This allows
+   Claude Desktop to drive nmap, Metasploit, Modbus, MQTT, and other tools
+   remotely through a structured tool interface. Configuration is in
+   `mcp-kali-server.json`.
+
+3. **ARXON-ICS Orchestrator**: The multi-model framework described below,
+   which coordinates DeepSeek, Kimi K2.5, Claude, and local models through
+   a swarm architecture with TLA+ safety verification.
+
 ## Motivation
 
 Critical infrastructure in the energy sector relies on Cyber-Physical Systems
@@ -325,6 +346,17 @@ The framework is instrumented for thesis evaluation:
   Modbus, BLE, and Zigbee; tool execution success rate per protocol
 - **Cost analysis**: Per-model, per-phase token usage and estimated cost
   in USD, enabling comparison of multi-model vs single-model approaches
+
+## TODO
+
+- Integrate the Ghidra decompiler tool (see `ghidra-decompiler` repo) with
+  the Python-based Argus reconnaissance tool to streamline firmware reverse
+  engineering and automated vulnerability discovery in a single pipeline.
+- Waiting for Moonshot to implement Kimi K2.5's agentic swarm capabilities
+  in its CLI tool, or to expose CLI-level usage that supports autonomous
+  multi-step tool execution. Once available, the ARXON-ICS orchestrator can
+  leverage K2.5's native task decomposition directly through the CLI rather
+  than relying on the API-based fallback path.
 
 ## License
 
